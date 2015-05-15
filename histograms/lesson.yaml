@@ -1,0 +1,50 @@
+- Class: meta
+  Course: mat108
+  Lesson: histograms
+  Author: Carlos C. Rodriguez
+  Type: Standard
+  Organization: The University at Albany. SUNY.
+  Version: 2.3.0
+  
+- Class: text
+  Output: In this lesson, you'll practice reading a histogram.
+  
+- Class: figure
+  Output: "Look at this histogram of the exam scores in a course 
+  with 123 students."
+  Figure: hist4.R
+  FigureType: new
+
+- Class: mult_question
+  Output: "How many students in this class had a score between 70 
+  and 80 points in the exam?"
+  AnswerChoices: 9;2;3;'7%';"Can't tell"
+  CorrectAnswer: 9
+  AnswerTests: omnitest(correctVal= '9')
+  Hint: "multiply the proportion of area for the gray block 
+  (15/(20+80+90+15)) by the total number of entries (123) in the list."
+  
+  
+- Class: figure
+  Output: "Now the block from 40 to 70 is missing!."
+  Figure: histo0.R
+  FigureType: new
+
+
+- Class: mult_question
+  Output: "Assume that the vertical scale is the density scale. 
+  What is the hight of the missing block ? Choose the closest answer:"
+  AnswerChoices: 0.17;0.21;5.00;6.00;"can't tell"
+  CorrectAnswer: 0.17
+  AnswerTests: omnitest(correctVal= '0.17')
+  Hint: "Compute the percentage of area of the 3 blocks (20+60+15)
+  and substract this number from the total 100 percent. Now that's the
+  percentage represented by the missing block. Thus, the hight of the
+  block must be (area/width) i.e. (100-95)/30"
+  
+
+- Class: script
+  Output: explain what the user must do here
+  AnswerTests: custom_test_name()
+  Hint: hint
+  Script: script-name.R
