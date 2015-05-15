@@ -11,14 +11,16 @@
   
 - Class: figure
   Output: "Look at this histogram of the exam scores in a course 
-  with 123 students."
+  with 123 students. There is a vertical scale but that is strictly not
+  necessary for the histogram to make sense. It is provided just to help with the
+  relative hights of the blocks."
   Figure: hist4.R
   FigureType: new
 
 - Class: mult_question
   Output: "How many students in this class had a score between 70 
   and 80 points in the exam?"
-  AnswerChoices: 9;2;3;'7%';"Can't tell"
+  AnswerChoices: 9;2;3;7%;"Can't tell"
   CorrectAnswer: 9
   AnswerTests: omnitest(correctVal= '9')
   Hint: "multiply the proportion of area for the gray block 
@@ -26,7 +28,8 @@
   
   
 - Class: figure
-  Output: "Now the block from 40 to 70 is missing!."
+  Output: "Now here is another histogram. It is simmilar but not the same
+  as the previous one. Besides, the block from 40 to 70 is missing!."
   Figure: histo0.R
   FigureType: new
 
@@ -39,12 +42,56 @@
   AnswerTests: omnitest(correctVal= '0.17')
   Hint: "Compute the percentage of area of the 3 blocks (20+60+15)
   and substract this number from the total 100 percent. Now that's the
-  percentage represented by the missing block. Thus, the hight of the
+  percentage represented by the missing block. Thus, the height of the
   block must be (area/width) i.e. (100-95)/30"
   
 
-- Class: script
-  Output: explain what the user must do here
-  AnswerTests: custom_test_name()
-  Hint: hint
-  Script: script-name.R
+- Class: figure
+  Output: "Look at the histogram of the yearly household incomes in a US town. The heights
+  of the 4 blocks are, 8,2,0.4, and, 0.1"
+  Figure: histo_incomes.R
+  FigureType: new
+  
+  
+
+- Class: mult_question
+  Output: "Using this histogram. What % of households in this town were used to
+  build the gray block ?. Choose the closest answer."
+  AnswerChoices: 18%;20%;10%;"can't tell";15%
+  CorrectAnswer: 18%
+  AnswerTests: omnitest(correctVal= '18%')
+  Hint: "Compute the % of area of the gray block. Find the area of the gray block
+  i.e., width*height (100) and divide this area by the total area under the histogram
+  (560)."
+  
+
+- Class: mult_question
+  Output: "What % of the households in this rich town have yearly incomes of more
+  than 100 thousand dollars ?. Choose the closest answer."
+  AnswerChoices: 11%;60%;10%;50%
+  CorrectAnswer: 11%
+  AnswerTests: omnitest(correctVal= '11%')
+  Hint: "Compute the area of the blocks to the right of 100 ( that gives an area of 60)
+  and divide by the total area under the histogram (that is 560). The answer is,
+  0.1071 multiplied by 100% to get the answer in percentage points"
+  
+  
+
+- Class: text_question
+  Output: "Supose that we consider to be poor the households with yearly incomes
+  of less than 10 thousand dollars. What % (rounded to the nearest integer) of
+  households in this town are poor?. Enter your answer as number% like 9%"
+  CorrectAnswer: 14%
+  AnswerTests: omnitest(correctVal='14%')
+  Hint: "It is the % of area in (1/5) of the first block. So, compute the area
+  for the first block (400) and divide it by 5 (that gives you 80) and 80/560*100
+  is the answer in percent."
+  
+
+- Class: text_question
+  Output: "Using the same histogram. What percentage of the households in this town 
+  have yearly incomes between $25000 and $120000 ?"
+  CorrectAnswer: 55%
+  AnswerTests: omnitest(correctVal='55%')
+  Hint: "% of area of (1/2)*firstblock+secondblock+(1/5)*thirdblock. That is,
+  (400/2+100+100*0.4/5)/560 multiplied by 100%"
